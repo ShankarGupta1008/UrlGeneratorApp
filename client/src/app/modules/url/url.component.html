@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="header">
+        <p>Generate random url by giving actual url</p>
+    </div>
+    <div class="body">
+        <input type="text" [(ngModel)]="inputUrl">
+        <button (click)="urlGenerator(inputUrl)">Generate</button>
+        <div *ngIf="invalidUrl">
+            <p style="color: red;">Can u pls enter valid url</p>
+        </div>
+    </div>
+    <div *ngIf="flag" class="footer">
+        <p>Hey, this is your generated random url. Valid only for 5 min</p>
+        <a style="color: green;" (click)="retrieveOriginalUrl(randomGeneratedUrl)">{{ randomGeneratedUrl }}</a>
+        <p *ngIf="expired" style="color: orangered;">Sorry, The url you are clicking got expired</p>
+    </div>
+    <div class="below-examples">
+        <p>Enter Url formats be like:<br><br>
+            -https://www.example.com<br>
+            -http://www.example.com/path/to/page.html?param1=value1&param2=value2#fragment<br>
+            -ftp://ftp.example.com/file.txt<br>
+            -file:///C:/path/to/file.txt<br>
+        </p>
+    </div>
+</div>
