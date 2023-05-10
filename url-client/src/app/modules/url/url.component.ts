@@ -10,7 +10,7 @@ import { MainServiceService } from 'src/app/services/main-service.service';
   styleUrls: ['./url.component.scss']
 })
 export class UrlComponent implements OnInit, OnDestroy {
-  
+
   flag: boolean = false;
   invalidUrl: boolean = false;
   inputUrl: string = '';
@@ -25,16 +25,16 @@ export class UrlComponent implements OnInit, OnDestroy {
     this.initialize();
   }
 
-  initialize(){
-    this.inputUrl='';
+  initialize() {
+    this.inputUrl = '';
     this.invalidUrl = false;
     this.flag = false;
     this.randomGeneratedUrl = null;
   }
 
-  urlGenerator(inputUrl){
+  urlGenerator(inputUrl) {
     this.inputUrl = inputUrl;
-    if(this.isValidUrl(this.inputUrl)){
+    if (this.isValidUrl(this.inputUrl)) {
       this.invalidUrl = false;
       this.flag = true;
       this.inputUrl = inputUrl;
@@ -42,7 +42,7 @@ export class UrlComponent implements OnInit, OnDestroy {
         console.log(res);
         this.randomGeneratedUrl = res.generatedUrl;
       })
-    }else{
+    } else {
       this.flag = false;
       this.invalidUrl = true;
     }
@@ -58,14 +58,14 @@ export class UrlComponent implements OnInit, OnDestroy {
     }
   }
 
-  retrieveOriginalUrl(url){
+  retrieveOriginalUrl(url) {
     console.log(url);
     this.fetchOriginalLinkSubscription = this.mainServiceService.getData(url).subscribe((res) => {
       console.log(res);
-      if(res == null){
+      if (res == null) {
         this.expired = true;
         this.initialize();
-      }else{
+      } else {
         window.open(res.givenUrl);
       }
     });

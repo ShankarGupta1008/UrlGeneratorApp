@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MainServiceService {
-  url="10.113.169.136:8081/api/get?generatedUrl=https://localhost:7070/AjJ1nZV_";
 
   constructor(private httpClient: HttpClient) { }
 
