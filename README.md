@@ -1,4 +1,4 @@
-# Angular-spring-boot-boilerplate
+# Angular-spring-boot-starter
 
 Environment Essentials :-<br>
 Java 1.8 SDK<br>
